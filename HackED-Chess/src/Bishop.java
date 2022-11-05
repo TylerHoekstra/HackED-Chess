@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Bishop extends Piece{
 
 	protected Bishop(int x, int y, boolean isBlack) {
@@ -12,7 +14,7 @@ public class Bishop extends Piece{
 	}
 
 	@Override
-	public void findPossibleMoves() {
+	public void findPossibleMoves(HashMap<int[],Piece> allPieces) {
 		// TODO Auto-generated method stub
 		
 	}

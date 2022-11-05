@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Pawn extends Piece{
 
 	private boolean hasMoved = false;
@@ -14,7 +16,7 @@ public class Pawn extends Piece{
 	}
 
 	@Override
-	public void findPossibleMoves() {
+	public void findPossibleMoves(HashMap<int[],Piece> allPieces) {
 		possibleMoves.clear();
 		if(!hasMoved) {
 			this.position[1] = ;

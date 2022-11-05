@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class Board {
 	
-	HashMap<int[],Piece> allPieces = new HashMap<int[], Piece>();
+	private HashMap<int[],Piece> allPieces = new HashMap<int[], Piece>();
 	
 	public Board() {
 		// Rooks initialization
@@ -45,7 +45,7 @@ public class Board {
 		int[] B4 = {5,7};
 		allPieces.put(B4 ,new Bishop(5, 7, true));
 		
-		// King Initialization
+		// Queen Initialization
 		int[] Q1 = {3,0};
 		allPieces.put(Q1 ,new Queen(3, 0, false));
 		int[] Q2 = {3,7};
@@ -56,8 +56,15 @@ public class Board {
 		allPieces.put(K1 ,new King(4, 0, false));
 		int[] K2 = {4,7};
 		allPieces.put(K2 ,new King(4, 7, true));
-		
-		
-		
 	}
+	
+	public HashMap<int[],Piece> getAllPieces(){
+		return allPieces;
+	}
+	
+	public void changePosition(int[] position) {
+		Set<>allPieces.keySet()
+	}
+		
+	
 }

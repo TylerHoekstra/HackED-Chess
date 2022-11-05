@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 public abstract class Piece {
 
 	protected boolean isBlack;
@@ -21,5 +22,5 @@ public abstract class Piece {
 	
 	public abstract void move();
 	
-	public abstract void findPossibleMoves();
+	public abstract void findPossibleMoves(HashMap<int[],Piece> allPieces);
 }
