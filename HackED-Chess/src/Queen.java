@@ -21,6 +21,7 @@ public class Queen extends Piece{
 			colour = 1;
 		else
 			colour = -1;
+		// "Rook Movement"
 		// Right
 		for(int i = x; i < 8; i++) {
 			if(theBoard.getPieceAtPosition(new int[]{i,y}) != colour) {
@@ -54,6 +55,40 @@ public class Queen extends Piece{
 				break;
 		}
 		
+		
+		//Bishop Movement
+		// Right+Up
+		for(int i = x; i < 8; i++) {
+			if(theBoard.getPieceAtPosition(new int[]{i,y+i-x}) != colour && y+i-x >= 0 && y+i-x <= 7) {
+				possibleMoves.add(String.valueOf(i) + String.valueOf(y+i-x));
+			}
+			else
+				break;
+		}
+		// Left+Down
+		for(int i = x; i > 0; i--) {
+			if(theBoard.getPieceAtPosition(new int[]{i,y+i-x}) != colour && y+i-x >= 0 && y+i-x <= 7) {
+				possibleMoves.add(String.valueOf(i) + String.valueOf(y+i-x));
+			}
+			else
+				break;
+		}
+		// Left+Up
+		for(int i = y; i < 8; i++) {
+			if(theBoard.getPieceAtPosition(new int[]{x-i+y,i}) != colour && x-i+y >= 0 && x-i+y <= 7) {
+				possibleMoves.add(String.valueOf(x-i+y) + String.valueOf(i));
+			}
+			else
+				break;
+		}
+		// Right+Down
+		for(int i = y; i > 0; i--) {
+			if(theBoard.getPieceAtPosition(new int[]{x-i+y,i}) != colour && x-i+y >= 0 && x-i+y <= 7) {
+				possibleMoves.add(String.valueOf(x-i+y) + String.valueOf(i));
+			}
+			else
+				break;
+		}		
 	}
 
 }
