@@ -17,11 +17,21 @@ public class Pawn extends Piece{
 
 	@Override
 	public void findPossibleMoves(HashMap<int[],Piece> allPieces) {
+		int x = this.getPosition()[0];
+		int y = this.getPosition()[1];
 		possibleMoves.clear();
-		if(!hasMoved) {
-			this.position[1] = ;
+		if(isBlack) {
+			if(!hasMoved and allPieces) {
+				possibleMoves.add(String.valueOf(x) + String.valueOf(y-2));
+			}
+			possibleMoves.add(String.valueOf(x) + String.valueOf(y-1));
 		}
-		
+		else {
+			if(!hasMoved) {
+				possibleMoves.add(String.valueOf(x) + String.valueOf(y+2));;
+			}
+			possibleMoves.add(String.valueOf(x) + String.valueOf(y+1));
+		}
 	}
 
 }
