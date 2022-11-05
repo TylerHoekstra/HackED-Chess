@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class Pawn extends Piece{
 
 	private boolean hasMoved = false;
@@ -16,18 +14,18 @@ public class Pawn extends Piece{
 	}
 
 	@Override
-	public void findPossibleMoves(HashMap<int[],Piece> allPieces) {
+	public void findPossibleMoves(Board theBoard) {
 		int x = this.getPosition()[0];
 		int y = this.getPosition()[1];
 		possibleMoves.clear();
 		if(isBlack) {
-			if(!hasMoved and allPieces) {
+			if(!hasMoved && theBoard.getPieceAtPosition() == 0) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(y-2));
 			}
 			possibleMoves.add(String.valueOf(x) + String.valueOf(y-1));
 		}
 		else {
-			if(!hasMoved) {
+			if(!hasMoved && theBoard.getPieceAtPosition() == 0) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(y+2));;
 			}
 			possibleMoves.add(String.valueOf(x) + String.valueOf(y+1));
