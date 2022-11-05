@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Set;
 
 public class Board {
 	
@@ -62,8 +63,15 @@ public class Board {
 		return allPieces;
 	}
 	
-	public void changePosition(int[] position) {
-		Set<>allPieces.keySet()
+	public void changePosition(int[] oldPosition) {
+		Set<int[]> taken = allPieces.keySet();
+		for (int[] pair : taken) {
+			if (pair[0] == oldPosition[0] || pair[1] == oldPosition[1]) {
+				Piece piece = allPieces.remove(pair);
+				allPieces.put(piece.getPosition(), piece);
+				break;
+			}
+		}
 	}
 		
 	
