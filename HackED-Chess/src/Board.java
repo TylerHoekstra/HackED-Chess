@@ -75,6 +75,7 @@ public class Board {
 	}
 	
 	public int getPieceAtPosition(int[] position) {
+		//
 		if (allPieces.containsKey(position)) {
 			if (allPieces.get(position).getIsBlack()) {
 				return 1;
