@@ -19,13 +19,13 @@ public class Pawn extends Piece{
 		int y = this.getPosition()[1];
 		possibleMoves.clear();
 		if(isBlack) {
-			if(!hasMoved && theBoard.getPieceAtPosition == 0) {
+			if(!hasMoved && theBoard.getPieceAtPosition() == 0) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(y-2));
 			}
 			possibleMoves.add(String.valueOf(x) + String.valueOf(y-1));
 		}
 		else {
-			if(!hasMoved) {
+			if(!hasMoved && theBoard.getPieceAtPosition() == 0) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(y+2));;
 			}
 			possibleMoves.add(String.valueOf(x) + String.valueOf(y+1));
