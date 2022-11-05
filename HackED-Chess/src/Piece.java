@@ -15,6 +15,10 @@ public abstract class Piece {
 		return position;
 	}
 	
+	public boolean getIsBlack() {
+		return isBlack;
+	}
+	
 	public ArrayList<String> getPossibleMoves(){
 		return possibleMoves;
 	}

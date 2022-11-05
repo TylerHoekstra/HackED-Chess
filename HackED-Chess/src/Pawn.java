@@ -19,7 +19,7 @@ public class Pawn extends Piece{
 		int y = this.getPosition()[1];
 		possibleMoves.clear();
 		if(isBlack) {
-			if(!hasMoved ) {
+			if(!hasMoved && theBoard.getPieceAtPosition == 0) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(y-2));
 			}
 			possibleMoves.add(String.valueOf(x) + String.valueOf(y-1));
