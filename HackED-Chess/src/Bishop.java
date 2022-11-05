@@ -38,7 +38,7 @@ public class Bishop extends Piece{
 			else
 				break;
 		}
-		// Right+Up
+		// Left+Up
 		for(int i = y; i < 8; i++) {
 			if(theBoard.getPieceAtPosition(new int[]{x-i+y,i}) != colour && x-i+y >= 0 && x-i+y <= 7) {
 				possibleMoves.add(String.valueOf(x-i+y) + String.valueOf(i));
@@ -46,7 +46,7 @@ public class Bishop extends Piece{
 			else
 				break;
 		}
-		// Left+Down
+		// Right+Down
 		for(int i = y; i > 0; i--) {
 			if(theBoard.getPieceAtPosition(new int[]{x-i+y,i}) != colour && x-i+y >= 0 && x-i+y <= 7) {
 				possibleMoves.add(String.valueOf(x-i+y) + String.valueOf(i));
