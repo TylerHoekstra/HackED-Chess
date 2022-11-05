@@ -15,14 +15,14 @@ public class Rook extends Piece{
 		int x = this.getPosition()[0];
 		int y = this.getPosition()[1];
 		possibleMoves.clear();
-		int z;
+		int colour;
 		if(isBlack)
-			z = 1;
+			colour = 1;
 		else
-			z = -1;
+			colour = -1;
 		// Right
 		for(int i = x; i < 8; i++) {
-			if(theBoard.getPieceAtPosition(new int[]{i,y}) != z) {
+			if(theBoard.getPieceAtPosition(new int[]{i,y}) != colour) {
 				possibleMoves.add(String.valueOf(i) + String.valueOf(y));
 			}
 			else
@@ -30,7 +30,7 @@ public class Rook extends Piece{
 		}
 		// Left
 		for(int i = x; i > 0; i--) {
-			if(theBoard.getPieceAtPosition(new int[]{i,y}) != z) {
+			if(theBoard.getPieceAtPosition(new int[]{i,y}) != colour) {
 				possibleMoves.add(String.valueOf(i) + String.valueOf(y));
 			}
 			else
@@ -38,7 +38,7 @@ public class Rook extends Piece{
 		}
 		// Up
 		for(int i = y; i < 8; i++) {
-			if(theBoard.getPieceAtPosition(new int[]{x,i}) != z) {
+			if(theBoard.getPieceAtPosition(new int[]{x,i}) != colour) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(i));
 			}
 			else
@@ -46,7 +46,7 @@ public class Rook extends Piece{
 		}
 		// Down
 		for(int i = y; i > 0; i--) {
-			if(theBoard.getPieceAtPosition(new int[]{x,i}) != z) {
+			if(theBoard.getPieceAtPosition(new int[]{x,i}) != colour) {
 				possibleMoves.add(String.valueOf(x) + String.valueOf(i));
 			}
 			else
