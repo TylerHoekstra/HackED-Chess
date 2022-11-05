@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 public abstract class Piece {
 
+	protected boolean isBlack;
 	protected int[] position = new int[2];
 	protected ArrayList<String> possibleMoves = new ArrayList<String>();
 	
-	protected Piece(int x, int y) {
+	protected Piece(int x, int y, boolean isBlack) {
 		position[0] = x;
 		position[1] = y;
+		this.isBlack = isBlack;
 	}
 	
 	public int[] getPosition() {

@@ -1,7 +1,7 @@
 public class Queen extends Piece{
 
-	protected Queen(int x, int y) {
-		super(x, y);
+	protected Queen(int x, int y, boolean isBlack) {
+		super(x, y, isBlack);
 		// TODO Auto-generated constructor stub
 	}
 

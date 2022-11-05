@@ -1,7 +1,7 @@
 public class Rook extends Piece{
 
-	protected Rook(int x, int y) {
-		super(x, y);
+	protected Rook(int x, int y, boolean isBlack) {
+		super(x, y, isBlack);
 	}
 
 	@Override
@@ -12,7 +12,7 @@ public class Rook extends Piece{
 
 	@Override
 	public void findPossibleMoves() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -1,7 +1,9 @@
 public class Pawn extends Piece{
 
-	protected Pawn(int x, int y) {
-		super(x, y);
+	private boolean hasMoved = false;
+	
+	protected Pawn(int x, int y, boolean isBlack) {
+		super(x, y, isBlack);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -13,7 +15,10 @@ public class Pawn extends Piece{
 
 	@Override
 	public void findPossibleMoves() {
-		// TODO Auto-generated method stub
+		possibleMoves.clear();
+		if(!hasMoved) {
+			this.position[1] = ;
+		}
 		
 	}
 
