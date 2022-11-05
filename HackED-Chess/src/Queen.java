@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class Queen extends Piece{
 
 	protected Queen(int x, int y, boolean isBlack) {
@@ -14,7 +12,7 @@ public class Queen extends Piece{
 	}
 
 	@Override
-	public void findPossibleMoves(HashMap<int[],Piece> allPieces) {
+	public void findPossibleMoves(Board theBoard) {
 		// TODO Auto-generated method stub
 		
 	}

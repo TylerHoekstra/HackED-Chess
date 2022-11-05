@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class Rook extends Piece{
 
 	protected Rook(int x, int y, boolean isBlack) {
@@ -13,7 +11,7 @@ public class Rook extends Piece{
 	}
 
 	@Override
-	public void findPossibleMoves(HashMap<int[],Piece> allPieces) {
+	public void findPossibleMoves(Board theBoard) {
 		
 		
 	}
