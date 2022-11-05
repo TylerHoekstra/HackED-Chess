@@ -63,10 +63,14 @@ public class Board {
 		return allPieces;
 	}
 	
+	public void checkAttacked(int[] position) {
+		
+	}
+	
 	public void changePosition(int[] oldPosition) {
 		Set<int[]> taken = allPieces.keySet();
 		for (int[] pair : taken) {
-			if (pair[0] == oldPosition[0] || pair[1] == oldPosition[1]) {
+			if (pair[0] == oldPosition[0] && pair[1] == oldPosition[1]) {
 				Piece piece = allPieces.remove(pair);
 				allPieces.put(piece.getPosition(), piece);
 				break;
@@ -85,6 +89,31 @@ public class Board {
 		} else {
 			return 0;
 		}
+	}
+	
+	public int inCheck() {
+		Set<int[]> taken = allPieces.keySet();
+		int[][] kingPositions = new int[2][2];
+		int i = 0;
+		King testKing = new King(0, 0, false); // Check for King class
+		// Find both Kings
+		for (int[] pair : taken) {
+			if(allPieces.get(pair).getClass() == testKing.getClass()) {
+				kingPositions[i] = pair;
+				i++;
+			}
+		}
+		
+		// Set order of kingPositions to black then white
+		if(!allPieces.get(kingPositions[0]).getIsBlack()) {
+			int[] white = kingPositions[0];
+			kingPositions[0] = kingPositions[1];
+			kingPositions[1] = white;
+		}
+		
+		if
+			
+		
 	}
 		
 	
