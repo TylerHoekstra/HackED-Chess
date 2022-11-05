@@ -1,4 +1,9 @@
+public class Rook extends Piece{
 
-public class Rook {
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

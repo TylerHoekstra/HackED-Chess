@@ -1,4 +1,9 @@
+public class Pawn extends Piece{
 
-public class Pawn {
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

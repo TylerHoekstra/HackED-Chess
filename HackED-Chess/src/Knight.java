@@ -1,4 +1,9 @@
+public class Knight extends Piece{
 
-public class Knight {
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

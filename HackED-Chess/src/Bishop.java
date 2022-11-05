@@ -1,4 +1,9 @@
+public class Bishop extends Piece{
 
-public class Bishop {
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
