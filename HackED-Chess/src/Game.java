@@ -66,7 +66,7 @@ public class Game {
 				StringBuffer stringBuff = new StringBuffer("");
 				Iterator<String> itr = possMoves.iterator();
 				while(itr.hasNext()) {
-					stringBuff.append(itr.next());
+					stringBuff.append(itr.next() + " ");
 				}
 				System.out.println(stringBuff.toString());
 				String moveTo = scanner.nextLine();
@@ -90,7 +90,7 @@ public class Game {
 				StringBuffer stringBuff = new StringBuffer("");
 				Iterator<String> itr = possMoves.iterator();
 				while(itr.hasNext()) {
-					stringBuff.append(itr.next());
+					stringBuff.append(itr.next() + " ");
 				}
 				System.out.println(stringBuff.toString());
 				String moveTo = scanner.nextLine();
@@ -104,7 +104,7 @@ public class Game {
 					break;
 				}
             }
-            scanner.close();
-		}	
+		}
+        scanner.close();
 	}
 }

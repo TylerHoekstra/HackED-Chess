@@ -60,6 +60,11 @@ public class Board {
 		allPieces.put(K1 ,new King(4, 0, false));
 		int[] K2 = {4,7};
 		allPieces.put(K2 ,new King(4, 7, true));
+		
+		for(Piece piece : allPieces.values()) {
+			piece.findPossibleMoves(this);
+		}
+		
 	}
 	
 	public HashMap<int[],Piece> getAllPieces(){

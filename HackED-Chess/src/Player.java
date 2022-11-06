@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class Player {
 
 	ArrayList<Piece> pieces = new ArrayList<Piece>();
-	ArrayList<String> allPossibleMoves;
+	ArrayList<String> allPossibleMoves = new ArrayList<String>();
 	boolean isBlack;
 	
 	//
