@@ -7,6 +7,7 @@ public class Player {
 	ArrayList<String> allPossibleMoves;
 	boolean isBlack;
 	
+	//
 	public Player(Board theBoard, boolean isBlack) {
 		this.isBlack = isBlack;
 		Set<int[]> taken = theBoard.getAllPieces().keySet();
