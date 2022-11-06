@@ -6,12 +6,6 @@ public class Bishop extends Piece{
 	}
 
 	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void findPossibleMoves(Board theBoard) {
 		// TODO Auto-generated method stub
 		int x = this.getPosition()[0];

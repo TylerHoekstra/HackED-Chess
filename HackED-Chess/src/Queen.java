@@ -6,12 +6,6 @@ public class Queen extends Piece{
 	}
 
 	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void findPossibleMoves(Board theBoard) {
 		int x = this.getPosition()[0];
 		int y = this.getPosition()[1];
