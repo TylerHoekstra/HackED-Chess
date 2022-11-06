@@ -67,6 +67,16 @@ public class Board {
 		
 	}
 	
+	public void remPiece(int[] removePoint) {
+		Set<int[]> keys = allPieces.keySet();
+		Iterator<int[]> itr = keys.iterator();
+		while(itr.hasNext()) {
+			int[] point = itr.next();
+			if(point[0] == removePoint[0] && point[1] == removePoint[1])
+				allPieces.remove(removePoint);
+		}
+	}
+	
 	public HashMap<int[],Piece> getAllPieces(){
 		return allPieces;
 	}

@@ -20,6 +20,11 @@ public class Player {
 		checkMoves();
 	}
 	
+	public void remPiece(Piece removePiece) {
+		pieces.remove(removePiece);
+		checkMoves();
+	}
+	
 	public boolean hasMoves() {
 		return !allPossibleMoves.isEmpty();
 	}

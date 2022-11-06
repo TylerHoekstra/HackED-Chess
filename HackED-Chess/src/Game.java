@@ -97,7 +97,12 @@ public class Game {
 		        for (int i = 0; i < 2; i++)
 		            ch[i] = moveTo.charAt(i);
 		        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
-				p2.move(point, strMoveTo);
+				if(newGame.getPieceAtPosition(point)==-1) {
+					Piece removePiece = p1.getPiece(point);
+					newGame.remPiece(point);
+					p1.remPiece(removePiece);
+				}
+		        p2.move(point, strMoveTo);
 				turn = false;
 				if (newGame.inCheck()==1 && !p1.hasMoves()) {
 					System.out.println("wb");
