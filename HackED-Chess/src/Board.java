@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.Iterator;
 
 public class Board {
 	
@@ -63,8 +66,23 @@ public class Board {
 		return allPieces;
 	}
 	
-	public void checkAttacked(int[] position) {
-		
+	public boolean isAttacked(int[] position) {
+		Collection<Piece> pieces = allPieces.values();
+		Iterator<Piece> itr = pieces.iterator();
+		ArrayList<String> possibleMoves;
+		String posString = String.valueOf(position[0]) + String.valueOf(position[1]);
+		while(itr.hasNext()) {
+			possibleMoves = itr.next().getPossibleMoves();
+			Iterator<String> possItr = possibleMoves.iterator();
+			while(possItr.hasNext()) {
+				String point = possItr.next();
+				if(point.equals(posString))
+					return true;
+			}
+			
+		}
+		return false;
+			
 	}
 	
 	public void changePosition(int[] oldPosition) {
@@ -111,7 +129,16 @@ public class Board {
 			kingPositions[1] = white;
 		}
 		
-		if
+		if(this.isAttacked(kingPositions[0])) {
+			return 1;
+		}
+		else if (this.isAttacked(kingPositions[1])) {
+			return -1;
+		}
+		else {
+			return 0;
+		}
+			
 			
 		
 	}
