@@ -23,7 +23,9 @@ public abstract class Piece {
 		return possibleMoves;
 	}
 	
-	public abstract void move();
+	public void move(int[] position) {
+		this.position = position;
+	}
 	
 	public abstract void findPossibleMoves(Board theBoard);
 }
