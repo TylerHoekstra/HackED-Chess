@@ -1,6 +1,6 @@
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Game {
 	
@@ -53,70 +53,58 @@ public class Game {
 		p2.checkMoves();
 		boolean isOver = false;
 		boolean turn = true;
-		try {
-			// Connect to the pipe
-			RandomAccessFile pipe = new RandomAccessFile("test.txt", "rw");
-			while (!isOver) {
-				if (turn) {
-					String space = null;
-					while(space==null)
-						space = pipe.readLine();
-					char[] ch = new char[2];
-			        for (int i = 0; i < 2; i++)
-			            ch[i] = space.charAt(i);
-			        int[] point = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};  
-					ArrayList<String> possMoves = p1.getPiece(point).getPossibleMoves();
-					StringBuffer stringBuff = new StringBuffer("");
-					Iterator<String> itr = possMoves.iterator();
-					while(itr.hasNext()) {
-						stringBuff.append(itr.next());
-					}
-					pipe.write(stringBuff.toString().getBytes());
-					String moveTo = null;
-					while(moveTo == null)
-						moveTo = pipe.readLine();
-			        for (int i = 0; i < 2; i++)
-			            ch[i] = moveTo.charAt(i);
-			        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
-					p1.move(point, strMoveTo);
-					turn = false;
-					if (newGame.inCheck()==1 && !p2.hasMoves()) {
-						pipe.write("ww".getBytes());
-						break;
-					}
+		Scanner scanner = new Scanner(System.in);
+        while(scanner.hasNext() && !isOver){
+            // Receive data from Python code 
+            if (turn) {
+				String space = scanner.nextLine();
+				char[] ch = new char[2];
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = space.charAt(i);
+		        int[] point = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};  
+				ArrayList<String> possMoves = p1.getPiece(point).getPossibleMoves();
+				StringBuffer stringBuff = new StringBuffer("");
+				Iterator<String> itr = possMoves.iterator();
+				while(itr.hasNext()) {
+					stringBuff.append(itr.next());
 				}
-				else {
-					String space = null;
-					while(space==null)
-						space = pipe.readLine();
-					char[] ch = new char[2];
-			        for (int i = 0; i < 2; i++)
-			            ch[i] = space.charAt(i);
-			        int[] point = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};  
-					ArrayList<String> possMoves = p2.getPiece(point).getPossibleMoves();
-					StringBuffer stringBuff = new StringBuffer("");
-					Iterator<String> itr = possMoves.iterator();
-					while(itr.hasNext()) {
-						stringBuff.append(itr.next());
-					}
-					pipe.write(stringBuff.toString().getBytes());
-					String moveTo = null;
-					while(moveTo == null)
-						moveTo = pipe.readLine();
-			        for (int i = 0; i < 2; i++)
-			            ch[i] = moveTo.charAt(i);
-			        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
-					p2.move(point, strMoveTo);
-					turn = true;
-					if (newGame.inCheck()==1 && !p1.hasMoves()) {
-						pipe.write("wb".getBytes());
-						break;
-					}
+				System.out.println(stringBuff.toString());
+				String moveTo = scanner.nextLine();
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = moveTo.charAt(i);
+		        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
+				p1.move(point, strMoveTo);
+				turn = false;
+				if (newGame.inCheck()==1 && !p2.hasMoves()) {
+					System.out.println("ww");
+					break;
 				}
 			}
-		pipe.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            else {
+            	String space = scanner.nextLine();
+				char[] ch = new char[2];
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = space.charAt(i);
+		        int[] point = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};  
+				ArrayList<String> possMoves = p2.getPiece(point).getPossibleMoves();
+				StringBuffer stringBuff = new StringBuffer("");
+				Iterator<String> itr = possMoves.iterator();
+				while(itr.hasNext()) {
+					stringBuff.append(itr.next());
+				}
+				System.out.println(stringBuff.toString());
+				String moveTo = scanner.nextLine();
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = moveTo.charAt(i);
+		        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
+				p2.move(point, strMoveTo);
+				turn = false;
+				if (newGame.inCheck()==1 && !p1.hasMoves()) {
+					System.out.println("wb");
+					break;
+				}
+            }
+            scanner.close();
+		}	
 	}
 }
