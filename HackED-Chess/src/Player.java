@@ -34,15 +34,26 @@ public class Player {
 	
 	public void move(int[] currentPos, int[] newPos) {
 		Iterator<Piece> itr =  pieces.iterator();
-		
+		String strNewPos = String.valueOf(newPos[0]) + String.valueOf(newPos[1]);
+		Piece selPiece;
 		while(itr.hasNext()) {
-			int[] point = itr.next().getPosition();
-			if(point[0] == currentPos[0] && point[1] == currentPos[1]) {
-				
+			selPiece = itr.next();
+			int[] point = selPiece.getPosition();
+			if(point[0] != currentPos[0] || point[1] != currentPos[1]) {
+				selPiece = null;
+			}
+			if(selPiece != null) {
+				ArrayList<String> moves = selPiece.getPossibleMoves();
+				Iterator<String> stir =  moves.iterator();
+				while(stir.hasNext()) {
+					String newPoint = stir.next();
+					if(newPoint.equals(strNewPos))
+						selPiece.move(newPos);
+					break;
+				}
+				break;
 			}
 		}
-		
-		
 	}
 	
 }

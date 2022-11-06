@@ -4,14 +4,13 @@ import java.nio.ByteBuffer;
 
 public class Game {
 	
-	public static void inputPipe(){
+	public static void outputPipe(String command){
 		try {
 			Pipe pipe = Pipe.open();
 			Pipe.SinkChannel sink = pipe.sink();
-			String test = "This is a test";
 			ByteBuffer buffer = ByteBuffer.allocate(1024);
 			buffer.clear();
-			buffer.put(test.getBytes());
+			buffer.put(command.getBytes());
 			buffer.flip();
 			while(buffer.hasRemaining()) {
 		         sink.write(buffer);
@@ -22,7 +21,7 @@ public class Game {
 		}
 	}
 	
-	public static void outputPipe(){
+	public static String inputPipe(){
 		try {
 			Pipe pipe = Pipe.open();
 			Pipe.SourceChannel source = pipe.source();
@@ -33,21 +32,19 @@ public class Game {
 		            char ch = (char) buffer.get();
 		            System.out.print(ch);
 		         }
-		         buffer.clear();
 		    }
+			return buffer.toString();
 		}
 		catch(IOException e) {
 			System.err.println("Pipe IOException");
 		}
+		return null;
 	}
 	
 	public static void main(String[] args) {
-		
-		inputPipe();
-		outputPipe();
 		Board newGame = new Board();
-		Player p1 = new Player(false, newGame);    // white
-		Player p2 = new Player(true, newGame);    // black
+		Player p1 = new Player(newGame, false);    // white
+		Player p2 = new Player(newGame, true);    // black
 		boolean isOver = false;
 		boolean turn = true;
 		int winner = 0;
