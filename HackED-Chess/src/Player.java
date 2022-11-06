@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class Player {
 
-	ArrayList<Piece> pieces;
+	ArrayList<Piece> pieces = new ArrayList<Piece>();
 	ArrayList<String> allPossibleMoves;
 	boolean isBlack;
 	
@@ -13,7 +13,7 @@ public class Player {
 		this.isBlack = isBlack;
 		Set<int[]> taken = theBoard.getAllPieces().keySet();
 		for (int[] pair : taken) {
-			if (theBoard.getAllPieces().get(pair).getIsBlack()) {
+			if (theBoard.getAllPieces().get(pair).getIsBlack() == isBlack) {
 				pieces.add(theBoard.getAllPieces().get(pair));
 			}
 		}
