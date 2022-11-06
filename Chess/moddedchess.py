@@ -64,7 +64,16 @@ class Chess:
         self.bking1 = Piece("king-b.png", ["e", 8])
         self.bbish2 = Piece("bish-b.png", ["f", 8])
         self.bnigh2 = Piece("knight-b.png", ["g", 8])
-        self.brook2 = Piece("rook-b.png", ["h", 8])        
+        self.brook2 = Piece("rook-b.png", ["h", 8])
+
+        self.pieces_list = [self.wpawn1, self.wpawn2, self.wpawn3,
+            self.wpawn4, self.wpawn5, self.wpawn6, self.wpawn7,
+            self.wpawn8, self.wrook1, self.wrook2, self.wnigh1,
+            self.wnigh2, self.wbish1, self.wbish2, self.wquee1,
+            self.wking1, self.bpawn1, self.bpawn2, self.bpawn3,
+            self.bpawn4, self.bpawn5, self.bpawn6, self.bpawn7,
+            self.bpawn8, self.brook1, self.brook2, self.bnigh1,
+            self.bnigh2, self.bbish1, self.bbish2, self.bquee1, self.bking1]
         
         
 
