@@ -24,6 +24,19 @@ public class Player {
 		return !allPossibleMoves.isEmpty();
 	}
 	
+	public Piece getPiece(int[] space) {
+		Iterator<Piece> itr =  pieces.iterator();
+		Piece selPiece;
+		while(itr.hasNext()) {
+			selPiece = itr.next();
+			int[] point = selPiece.getPosition();
+			if(point[0] == space[0] && point[1] == space[1]) {
+				return selPiece;
+			}
+		}
+		return null;
+	}
+	
 	public void checkMoves() {
 		for (Piece piece : pieces) {
 			for (String possibleMove : piece.getPossibleMoves()) {

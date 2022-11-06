@@ -1,6 +1,8 @@
 import java.nio.channels.Pipe;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Game {
 	
@@ -47,19 +49,50 @@ public class Game {
 		Player p2 = new Player(newGame, true);    // black
 		boolean isOver = false;
 		boolean turn = true;
-		int winner = 0;
 		while (!isOver) {
 			if (turn) {
-				p1.move();
+				String space = inputPipe();
+				char[] ch = new char[2];
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = space.charAt(i);
+		        int[] point = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};  
+				ArrayList<String> possMoves = p1.getPiece(point).getPossibleMoves();
+				StringBuffer stringBuff = new StringBuffer("");
+				Iterator<String> itr = possMoves.iterator();
+				while(itr.hasNext()) {
+					stringBuff.append(itr.next());
+				}
+				outputPipe(stringBuff.toString());
+				String moveTo = inputPipe();
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = moveTo.charAt(i);
+		        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
+				p2.move(point, strMoveTo);
 				if (newGame.inCheck()==1 && !p2.hasMoves()) {
-					winner = 1;
+					outputPipe("ww");
 					break;
 				}
 			}
 			else {
-				p2.move();
+				String space = inputPipe();
+				char[] ch = new char[2];
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = space.charAt(i);
+		        int[] point = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};  
+				ArrayList<String> possMoves = p1.getPiece(point).getPossibleMoves();
+				StringBuffer stringBuff = new StringBuffer("");
+				Iterator<String> itr = possMoves.iterator();
+				while(itr.hasNext()) {
+					stringBuff.append(itr.next());
+				}
+				outputPipe(stringBuff.toString());
+				String moveTo = inputPipe();
+		        for (int i = 0; i < 2; i++)
+		            ch[i] = moveTo.charAt(i);
+		        int[] strMoveTo = {Integer.parseInt(String.valueOf(ch[0])), Integer.parseInt(String.valueOf(ch[1]))};
+				p1.move(point, strMoveTo);
 				if (newGame.inCheck()==-1 && !p1.hasMoves()) {
-					winner = -1;
+					outputPipe("wb");
 					break;
 				}
 			}
