@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.Iterator;
 
 public class Player {
 
@@ -16,6 +17,14 @@ public class Player {
 				pieces.add(theBoard.getAllPieces().get(pair));
 			}
 		}
+		checkMoves();
+	}
+	
+	public boolean hasMoves() {
+		return !allPossibleMoves.isEmpty();
+	}
+	
+	public void checkMoves() {
 		for (Piece piece : pieces) {
 			for (String possibleMove : piece.getPossibleMoves()) {
 				allPossibleMoves.add(possibleMove);
@@ -23,11 +32,16 @@ public class Player {
 		}
 	}
 	
-	public boolean hasMoves() {
-		return !allPossibleMoves.isEmpty();
-	}
-	
-	public void move() {
+	public void move(int[] currentPos, int[] newPos) {
+		Iterator<Piece> itr =  pieces.iterator();
+		
+		while(itr.hasNext()) {
+			int[] point = itr.next().getPosition();
+			if(point[0] == currentPos[0] && point[1] == currentPos[1]) {
+				
+			}
+		}
+		
 		
 	}
 	

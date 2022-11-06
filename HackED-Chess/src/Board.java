@@ -78,8 +78,7 @@ public class Board {
 				String point = possItr.next();
 				if(point.equals(posString))
 					return true;
-			}
-			
+			}	
 		}
 		return false;
 			
@@ -138,10 +137,5 @@ public class Board {
 		else {
 			return 0;
 		}
-			
-			
-		
-	}
-		
-	
+	}	
 }
